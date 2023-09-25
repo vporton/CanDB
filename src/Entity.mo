@@ -1,7 +1,7 @@
 /// Entity - An entity is the base data record or item that is stored in CanDB
 
 import Array "mo:base/Array";
-import Blob "mo:base/Blob";
+// import Blob "mo:base/Blob";
 import Bool "mo:base/Bool";
 import Float "mo:base/Float";
 import Int "mo:base/Int";
@@ -34,9 +34,9 @@ module {
     #candy: CandyTypes.CandyShared;
   };
 
-  public type AttributeValueBlob = {
-    #blob: Blob;
-  };
+  // public type AttributeValueBlob = {
+  //   #blob: Blob;
+  // };
 
   /// An AttributeValue can be an array of AttributeValuePrimitive (tuple type)
   public type AttributeValueTuple = {
@@ -51,7 +51,7 @@ module {
     #arrayFloat: [Float];
   };
 
-  public type AttributeValueRBTreeValue = AttributeValuePrimitive or AttributeValueBlob or AttributeValueTuple or AttributeValueArray or AttributeValueCandyPrimitive;
+  public type AttributeValueRBTreeValue = AttributeValuePrimitive or /*AttributeValueBlob or*/ AttributeValueTuple or AttributeValueArray or AttributeValueCandyPrimitive;
 
   /// An AttributeValue can be a map (tree) with text keys and values as AttributeValuePrimitive or AttributeValueArray
   public type AttributeValueRBTree = {
@@ -61,7 +61,7 @@ module {
   /// Attribute Value (Variant). Represents the value of a specific Attribute in an AttributeMap. 
   public type AttributeValue = 
     AttributeValuePrimitive or 
-    AttributeValueBlob or
+    // AttributeValueBlob or
     AttributeValueTuple or
     AttributeValueArray or
     AttributeValueRBTree or
@@ -178,7 +178,7 @@ module {
           case (?#bool(b)) { Bool.toText(b) };
           case (?#float(f)) { Float.toText(f) };
           // TODO: maybe there's a better way to transform a blob to type text for equality purposes?
-          case (?#blob(b)) { Nat32.toText(Blob.hash(b)) };
+          // case (?#blob(b)) { Nat32.toText(Blob.hash(b)) };
           case (?#tuple(tup)) { debug_show(tup) };
           case (?#arrayText(at)) { debug_show(at) };
           case (?#arrayInt(ai)) { debug_show(ai) };
@@ -218,7 +218,7 @@ module {
       case(#int(i1), #int(i2)) { Int.equal(i1, i2) };
       case(#bool(b1), #bool(b2)) { Bool.equal(b1, b2) };
       case(#float(f1), #float(f2)) { Float.equalWithin(f1, f2, 1e-10) };
-      case(#blob(b1), #blob(b2)) { Blob.equal(b1, b2) };
+      // case(#blob(b1), #blob(b2)) { Blob.equal(b1, b2) };
       case(#tuple(tup1), #tuple(tup2)) { Array.equal<AttributeValue>(tup1, tup2, attributeValuesEqual) };
       case(#arrayText(a1), #arrayText(a2)) { Array.equal<Text>(a1, a2, Text.equal) };
       case(#arrayInt(a1), #arrayInt(a2)) { Array.equal<Int>(a1, a2, Int.equal) };
