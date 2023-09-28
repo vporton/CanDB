@@ -184,8 +184,8 @@ module {
           case (?#arrayInt(ai)) { debug_show(ai) };
           case (?#arrayBool(ab)) { debug_show(ab) };
           case (?#arrayFloat(af)) { debug_show(af) };
-          case (?#tree(t)) { debug_show(t) };
-          case (?#candy(c)) { debug_show(c) };
+          // case (?#tree(t)) { debug_show(t) };
+          // case (?#candy(c)) { debug_show(c) };
         };
 
         attributeMapToText(l) # "(k=" # k # ", v=" # value # "), " # attributeMapToText(r) ;
@@ -224,7 +224,7 @@ module {
       case(#arrayInt(a1), #arrayInt(a2)) { Array.equal<Int>(a1, a2, Int.equal) };
       case(#arrayBool(a1), #arrayBool(a2)) { Array.equal<Bool>(a1, a2, Bool.equal) };
       case(#arrayFloat(a1), #arrayFloat(a2)) { Array.equal<Float>(a1, a2, func(a, b) { Float.equalWithin(a, b, 1e-10) }) };
-      case(#tree(t1), #tree(t2)) { RBT.equalIgnoreDeleted<Text, AttributeValue>(t1, t2, Text.equal, attributeValuesEqual) };
+      // case(#tree(t1), #tree(t2)) { RBT.equalIgnoreDeleted<Text, AttributeValue>(t1, t2, Text.equal, attributeValuesEqual) };
       case _ { false };
     }
   };
