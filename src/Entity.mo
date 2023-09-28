@@ -63,9 +63,9 @@ module {
     AttributeValuePrimitive or 
     // AttributeValueBlob or
     AttributeValueTuple or
-    AttributeValueArray /*or
+    AttributeValueArray; /*or
     AttributeValueRBTree or
-    AttributeValueCandyPrimitive*/;
+    AttributeValueCandyPrimitive;*/
  
   /// Key to Value mapping of all Entity attributes, stored in a Red-Black Tree
   public type AttributeMap = RBT.Tree<AttributeKey, AttributeValue>;
