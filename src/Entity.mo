@@ -64,7 +64,7 @@ module {
     // AttributeValueBlob or
     AttributeValueTuple or
     AttributeValueArray or
-    AttributeValueRBTree or
+    // AttributeValueRBTree or
     AttributeValueCandyPrimitive;
  
   /// Key to Value mapping of all Entity attributes, stored in a Red-Black Tree
