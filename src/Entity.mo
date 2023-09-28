@@ -51,7 +51,7 @@ module {
     #arrayFloat: [Float];
   };
 
-  public type AttributeValueRBTreeValue = AttributeValuePrimitive or /*AttributeValueBlob or*/ AttributeValueTuple or AttributeValueArray or AttributeValueCandyPrimitive;
+  public type AttributeValueRBTreeValue = AttributeValuePrimitive or /*AttributeValueBlob or*/ AttributeValueTuple or AttributeValueArray /*or AttributeValueCandyPrimitive*/;
 
   /// An AttributeValue can be a map (tree) with text keys and values as AttributeValuePrimitive or AttributeValueArray
   public type AttributeValueRBTree = {
@@ -65,7 +65,7 @@ module {
     AttributeValueTuple or
     AttributeValueArray or
     // AttributeValueRBTree or
-    AttributeValueCandyPrimitive;
+    // AttributeValueCandyPrimitive;
  
   /// Key to Value mapping of all Entity attributes, stored in a Red-Black Tree
   public type AttributeMap = RBT.Tree<AttributeKey, AttributeValue>;
