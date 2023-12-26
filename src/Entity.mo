@@ -9,7 +9,7 @@ import Iter "mo:base/Iter";
 import Nat32 "mo:base/Nat32";
 import Text "mo:base/Text";
 
-import CandyTypes "mo:candy/types";
+// import CandyTypes "mo:candy/types";
 import RBT "mo:stable-rbtree/StableRBTree";
 
 
@@ -30,9 +30,9 @@ module {
   };
 
   /// AttributeValueCandy primitive options 
-  public type AttributeValueCandyPrimitive = {
-    #candy: CandyTypes.CandyShared;
-  };
+  // public type AttributeValueCandyPrimitive = {
+  //   #candy: CandyTypes.CandyShared;
+  // };
 
   // public type AttributeValueBlob = {
   //   #blob: Blob;
